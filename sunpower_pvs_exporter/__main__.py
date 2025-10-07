@@ -11,6 +11,7 @@ from prometheus_client import start_http_server
 from prometheus_client.core import REGISTRY
 
 from sunpower_pvs_exporter.exporter import SunPowerPVSupervisorCollector
+from sunpower_pvs_exporter.exporterN import SunPowerSnapshotCollector
 
 
 def create_parser():
@@ -86,12 +87,14 @@ def main():
 
     scheme = "https" if args.use_tls else "http"
     use_ts = args.use_device_data_timestamp
-    collector = SunPowerPVSupervisorCollector(hostname=args.hostname,
-                                              port=args.port,
-                                              scheme=scheme,
-                                              timeout=args.timeout,
-                                              use_device_data_timestamp=use_ts,
-                                             )
+    #collector = SunPowerPVSupervisorCollector(hostname=args.hostname,
+    #                                          port=args.port,
+    #                                          scheme=scheme,
+    #                                          timeout=args.timeout,
+    #                                          use_device_data_timestamp=use_ts,
+    #                                        )
+
+    collector = SunPowerSnapshotCollector(host)
 
     logging.info("Listening on port %d...", args.listen_on)
     start_http_server(args.listen_on)
