@@ -23,7 +23,10 @@ def create_parser():
                         default="sunpowerconsole.com",
                         help="SunPower PV Supervisor hostname",
                        )
-
+    parser.add_argument("--host",
+                        default="192.168.1.222",    #change this to your PVS IP
+                        help="SunPower PV Supervisor hostname",
+                       )
     parser.add_argument("--port",
                         default=80,
                         help="SunPower PV Supervisor port",
@@ -94,7 +97,7 @@ def main():
     #                                          use_device_data_timestamp=use_ts,
     #                                        )
 
-    collector = SunPowerSnapshotCollector(host)
+    collector = SunPowerSnapshotCollector(host=args.host)
 
     logging.info("Listening on port %d...", args.listen_on)
     start_http_server(args.listen_on)
