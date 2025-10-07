@@ -12,7 +12,7 @@ from pypvs.models.pvs import PVSData
 from pypvs.models.common import CommonProperties
 from pypvs.const import SupportedFeatures
 from pypvs.exceptions import ENDPOINT_PROBE_EXCEPTIONS
-from sunpower_pvs_exporter import metric_cache
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 class SunPowerSnapshotCollector:
@@ -326,13 +326,7 @@ class SunPowerSnapshotCollector:
             metrics.append(heatsink_temp)
             metrics.append(energy)
             
-            metric_obj=[]
-            for m in metrics:
-                res = m
-                #yield res
-                metric_obj.append(res)
 
-            metric_cache.m = metric_obj
             return metrics
 
 if __name__ == "__main__":
