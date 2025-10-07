@@ -25,7 +25,7 @@ def create_parser():
                        )
     parser.add_argument("--host",
                         default="192.168.1.222",    #change this to your PVS IP
-                        help="SunPower PV Supervisor hostname",
+                        help="SunPower PV Supervisor host IP",
                        )
     parser.add_argument("--port",
                         default=80,
