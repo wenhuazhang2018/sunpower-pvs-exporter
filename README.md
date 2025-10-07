@@ -4,6 +4,13 @@ About
 [![Build Status](https://travis-ci.org/ginoledesma/sunpower-pvs-exporter.svg?branch=master)](https://travis-ci.org/ginoledesma/sunpower-pvs-exporter)
 [![codecov](https://codecov.io/gh/ginoledesma/sunpower-pvs-exporter/branch/master/graph/badge.svg)](https://codecov.io/gh/ginoledesma/sunpower-pvs-exporter)
 
+This is a fork from Gino Ledesma's sunpower-pvs-exporter
+
+Since PVS firmware 2025.9 varserver access become availabe, this fork added exporterN.py file, and modifed __main__ to use it.
+
+Also modified is systemd.service file to add "--host" argument.
+
+
 A Prometheus exporter for the SunPower ProVision monitoring system:
 
 - SunPower PVS 5x
