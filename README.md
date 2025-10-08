@@ -6,9 +6,11 @@ About
 
 This is a fork from Gino Ledesma's sunpower-pvs-exporter
 
-Since PVS firmware 2025.9 varserver access become availabe, this fork added exporterN.py file, and modifed __main__ to use it.
+- Since PVS firmware 2025.9 varserver access become availabe, in order to use varserver, this fork added exporterN.py file, and modifed __main__.py to use it.
 
-Also modified is systemd.service file to add "--host" argument.
+- Not all matrics were implemented, only meter and inverter were done. 
+
+- Also modified is systemd.service file to add "--host" argument.
 
 
 A Prometheus exporter for the SunPower ProVision monitoring system:
@@ -24,6 +26,14 @@ Requirements
 
 Installation
 ============
+to install the fork:
+
+pip install git+https://github.com/wenhuazhang2018/sunpower_pvs_exporter.git
+
+
+original installation instruction below for your ref.
+
+
 
 From pip:
 ```
@@ -44,7 +54,7 @@ Help
 ----
 ```
 $ sunpower-pvs-exporter -h 
-usage: sunpower-pvs-exporter [-h] [--hostname HOSTNAME] [--port PORT]
+usage: sunpower-pvs-exporter [-h] [--hostname HOSTNAME] [--host HOSTIP][--port PORT] 
                              [--use-tls] [--listen-on LISTEN_ON]
                              [--log-file LOG_FILE]
                              [--log-level {ERROR,WARNING,INFO,DEBUG}]
